@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Vinoteket</h1>
+        <p class="lead">This is a test webshop</p>
+        <p><a href="https://vinoteket.com" class="btn btn-primary btn-md">Go to Vinoteket.com &raquo;</a></p>
+    </section>
+    <div class="row">
+        <section class="col-md-12" aria-labelledby="productCataloge">
+            <h2>Our wines:</h2>
+            <img src="@ViewBag.Article" style="height:100px;width:auto;" />
+        </section>
+    </div>
+    <div class="row">
+        <section class="col-md-6" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Getting started</h2>
+            <ul>
+                <li>You are allowed to edit any file to your preference.</li>
+                <li>The tasks are expected to take 1-2 hours.</li>
+                <li>If you run out of time that is fine. You don't have to finnish all the tasks.</li>
+                <li>When you are done: share your Github repository.</li>
+                <li>Vinoteket will book you for a 30 minute meeting to discuss you solution.</li>
+                <li>Do your best! Good luck!</li>
+            </ul>
+            <p>Note: The solution is using dependency injection.</p>
+        </section>
+        <section class="col-md-6" aria-labelledby="gettingStartedTasks">
+            <h2 id="gettingStartedTitle">Tasks</h2>
+            <ul>
+                <li>
+                    List all products below.
+                </li>
+                <li>
+                    Create a product page.
+                </li>
+                <li>
+                    Link the products from the startpage to the product page.
+                </li>
+                <li>
+                    Create a cart where you can add, remove and view products.
+                </li>
+                <li>
+                    (Optional) Write down some improvements you would have done if you had more time.
+                </li>
+            </ul>
+        </section>
+    </div>
+    <div class="row">
+        <section class="col-md-12" aria-labelledby="productCataloge">
+            <h2>Improvements:</h2>
+            <ul>
+                <li>
+                    [Placeholder]
+                </li>
+            </ul>
+        </section>
+    </div>
+</main>

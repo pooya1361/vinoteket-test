@@ -2,18 +2,87 @@
     ViewBag.Title = "Home Page";
 }
 
+@section Styles
+{
+    <style type="text/css">
+        .products_container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1.5rem
+        }
+
+        .product_item {
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+            background-color: whitesmoke;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid whitesmoke;
+            cursor: pointer;
+            box-shadow: 6px 6px 5px -1px rgba(0,0,0,0.15);
+            -webkit-box-shadow: 6px 6px 5px -1px rgba(0,0,0,0.15);
+            -moz-box-shadow: 6px 6px 5px -1px rgba(0,0,0,0.15);
+            transform: scale(1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: black;
+            .image_wrapper
+
+        {
+            display: flex;
+            height: 300px;
+            justify-content: center;
+            padding: 1rem 0;
+            img
+
+        {
+            height: 100%;
+        }
+
+        }
+
+        .product_info {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+            .product_title
+
+        {
+            font-weight: 500;
+        }
+
+        .product_price {
+            font-weight: bold;
+        }
+
+        }
+
+
+        .product_desc {
+            color: dimgray;
+        }
+
+        }
+
+        .product_item:hover {
+            border: 1px solid lightgray;
+            .image_wrapper img
+
+        {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+        }
+    </style>
+}
 <main>
     <section class="row" aria-labelledby="aspnetTitle">
         <h1 id="title">Vinoteket</h1>
         <p class="lead">This is a test webshop</p>
         <p><a href="https://vinoteket.com" class="btn btn-primary btn-md">Go to Vinoteket.com &raquo;</a></p>
     </section>
-    <div class="row">
-        <section class="col-md-12" aria-labelledby="productCataloge">
-            <h2>Our wines:</h2>
-            <img src="@ViewBag.Article" style="height:100px;width:auto;" />
-        </section>
-    </div>
+
     <div class="row">
         <section class="col-md-6" aria-labelledby="gettingStartedTitle">
             <h2 id="gettingStartedTitle">Getting started</h2>
@@ -53,9 +122,44 @@
             <h2>Improvements:</h2>
             <ul>
                 <li>
-                    [Placeholder]
+                    Reponsiveness (Tablet and mobile view)
+                </li>
+                <li>
+                    Pagination
+                </li>
+                <li>
+                    Implementing cart
+                </li>
+                <li>
+                    Some more animations
+                </li>
+                <li>
+                    Similar products section in the product page
+                </li>
+                <li>
+                    Sort and filter for the list
                 </li>
             </ul>
+        </section>
+    </div>
+    <div class="row">
+        <section class="col-md-12" aria-labelledby="productCataloge">
+            <h2>Our wines:</h2>
+            <div class="products_container">
+                @foreach (var product in ViewBag.Articles)
+                {
+                    <a class="product_item" href=@("/product/" + product.url)>
+                        <div class="image_wrapper">
+                            <img src="@product.image_url" />
+                        </div>
+                        <div class="product_info">
+                            <span class="product_title">@product.name</span>
+                            <span class="product_price">@product.price</span>
+                        </div>
+                        <span class="product_desc">@product.description</span>
+                    </a>
+                }
+            </div>
         </section>
     </div>
 </main>

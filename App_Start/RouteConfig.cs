@@ -14,6 +14,12 @@ namespace VinoteketTestWebApp
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "Details",                                              // Route name
+                "product/{url}",                           // URL with parameters
+                new { controller = "Home", action = "Details", url = "" }  // Parameter defaults
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

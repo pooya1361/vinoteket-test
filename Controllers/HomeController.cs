@@ -18,8 +18,16 @@ namespace VinoteketTestWebApp.Controllers
 
         public ActionResult Index()
         {
-            var article = _articleService.GetArticle("sku1");
-            ViewBag.Article = article;
+            var articles = _articleService.GetAllArticles();
+            ViewBag.Articles = articles;
+
+            return View();
+        }
+
+        public ActionResult Details(string url)
+        {
+            var article = _articleService.GetArticle(url);
+            ViewBag.article = article;
 
             return View();
         }

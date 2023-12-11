@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using VinoteketTestWebApp.Models;
 using VinoteketTestWebApp.Repositories;
 
 namespace VinoteketTestWebApp.Services
@@ -13,12 +14,18 @@ namespace VinoteketTestWebApp.Services
             this._articleRepository = articleRepository;
         }
 
-        public string GetArticle(string url) {
+        public Product GetArticle(string url)
+        {
 
             if (string.IsNullOrEmpty(url))
                 return null;
 
             return _articleRepository.GetArticle(url);
+        }
+
+        public List<Product> GetAllArticles()
+        {
+            return _articleRepository.GetAllArticles();
         }
     }
 }
